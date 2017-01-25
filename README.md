@@ -3,7 +3,7 @@
 You'll first need to clone the AYN repo into $HOME/workspace/ayn_packer_builder/
 
 `mkdir $HOME/workspace/ayn_packer_builder`
-`git clone <repo>
+`git clone <repo>`
 
 ## Build the image
 `docker build -t packerbuilder .`
