@@ -16,6 +16,7 @@ function DOCKRUN {
     docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
     -e ATLAS_TOKEN=$ATLAS_TOKEN \
+    -e CRYPT=$GITCRYPT \
     -v $HOME/workspace/ayn:/workspace/ayn packerbuilder \
     $i > ./logs/packer_$i.log &
   done

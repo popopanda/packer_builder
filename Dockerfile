@@ -8,7 +8,12 @@ RUN  apk --no-cache update && \
   rm -rf /var/cache/apk/* && \
   gem install bundler --version '1.13.1' && \
   curl -O https://releases.hashicorp.com/packer/0.12.2/packer_0.12.2_linux_amd64.zip && \
-  unzip packer_0.12.2_linux_amd64.zip -d /usr/local/bin
+  unzip packer_0.12.2_linux_amd64.zip -d /usr/local/bin && \
+  git clone https://www.agwa.name/git/git-crypt.git && \
+  cd git-crypt && \
+  make && \
+  make install && \
+  cd ..
 
 COPY support/rake-entry.sh /workspace
 ENTRYPOINT ["./rake-entry.sh"]
