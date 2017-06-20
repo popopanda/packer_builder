@@ -9,5 +9,5 @@ git-crypt unlock /workspace/ayn.gitcrypt
 bundle install
 
 for i in $@; do
-   rake pkr:build:$i
+   rake pkr:build:$i[$AWS_DEFAULT_REGION]
 done

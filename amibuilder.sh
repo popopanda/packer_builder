@@ -17,6 +17,7 @@ function DOCKRUN {
     -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
     -e ATLAS_TOKEN=$ATLAS_TOKEN \
     -e CRYPT=$GITCRYPT \
+    -e AWS_DEFAULT_REGION=$AWS_REGION\
     -v $HOME/workspace/ayn:/workspace/ayn packerbuilder \
     $i > ./logs/packer_$i.log &
   done
