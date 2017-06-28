@@ -7,10 +7,6 @@ echo "If you need to get the version number, you can do sed -n '/amazon.ami (v[0
 echo
 mkdir -p ./logs
 
-function DOCKCLEANUP {
-  docker rm $(docker ps -a |grep "packerbuilder" | grep "Exited" | awk '{print $1}')
-}
-
 function DOCKRUN {
   for i in $@; do
     docker run --rm -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
