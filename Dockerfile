@@ -2,6 +2,8 @@ FROM ruby:2.3.1-alpine
 
 WORKDIR /workspace
 
+COPY support/rake-entry.sh /workspace
+
 RUN  apk --no-cache update && \
   apk add --no-cache bash git openssh curl ruby ruby-dev ruby-rake make gcc libc-dev g++ python py-pip python-dev py-setuptools ca-certificates groff less unzip && \
   pip --no-cache-dir install awscli && \
@@ -15,5 +17,4 @@ RUN  apk --no-cache update && \
   make install && \
   cd ..
 
-COPY support/rake-entry.sh /workspace
-ENTRYPOINT ["./rake-entry.sh"]
+CMD ["./rake-entry.sh"]
