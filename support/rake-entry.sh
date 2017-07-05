@@ -2,6 +2,12 @@
 
 set -xe
 
+mkdir -p /root/.ssh/
+touch /root/.ssh/id_rsa
+chmod 600 /root/.ssh/id_rsa
+# echo ${SSH_KEY} > /root/.ssh/id_rsa
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+
 mkdir -p /workspace
 git clone git@github.com:FundingCircle/ayn.git --depth=1 --branch=${AYN_BRANCH} /workspace/ayn
 

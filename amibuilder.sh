@@ -8,8 +8,8 @@ function DOCKRUN {
   -e ATLAS_TOKEN=${ATLAS_TOKEN} \
   -e CRYPT=${GITCRYPT} \
   -e AYN_BRANCH=${AYN_BRANCH} \
-  -e SERVICE=${SERVICE}
-  -e AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} quay.io/fundingcircle/packerbuilder
+  -e SERVICE=${SERVICE} \
+  -e AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} quay.io/fundingcircle/packerbuilder:jenkins
 }
 
 DOCKRUN
