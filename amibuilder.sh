@@ -12,6 +12,7 @@ function DOCKRUN {
     docker run --rm -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
     -e ATLAS_TOKEN=$ATLAS_TOKEN \
+    -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
     -e CRYPT=$GITCRYPT \
     -e AWS_DEFAULT_REGION=$AWS_REGION\
     -v $HOME/workspace/ayn:/workspace/ayn packerbuilder \
@@ -23,12 +24,5 @@ if [ $# -eq 0 ]; then
   echo "There was no arguments passed, Exiting...."
   exit 0
 else
-  while true; do
-    read -p "Do you wish to start? (y/n) " yn
-    case $yn in
-      [Yy]* ) DOCKRUN $@; break;;
-      [Nn]* ) echo "Exiting..."; exit 0;;
-      * ) echo "Please answer y or n.";;
-    esac
-  done
+  DOCKRUN $@
 fi
